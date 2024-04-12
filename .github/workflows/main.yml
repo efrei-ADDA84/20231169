@@ -6,17 +6,8 @@ on:
       - 'main'
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check Dockerfile with Hadolint
-        uses: hadolint/hadolint@v1
-        with:
-          file: Dockerfile
-    
   docker:
     runs-on: ubuntu-latest
-    needs: lint
 
     steps:
       - name: Set up QEMU

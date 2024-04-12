@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import os
 import requests
 
@@ -34,6 +34,7 @@ def api_weather():
     if latitude and longitude:
         weather, place_name = get_weather(latitude, longitude)
         return jsonify({"weather": weather, "place": place_name}), 200
+        #return render_template('index.html', weather=weather, place_name=place_name)
     else:
         return jsonify({'error': 'Unable to fetch weather data'}), 500
 

@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/weather', methods=['GET'])
 def get_weather():
     """
-    Cette fonction nous permet de récupérer les valeurs de latitude, longitude 
+    Cette fonction nous permet de renvoyer la météo d'un lieu donné en récupérant les valeurs de latitude, longitude 
     ainsi que la clé API à partir des variables d'environnement du système
     """
     latitude = os.environ.get('LAT')

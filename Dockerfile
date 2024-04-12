@@ -9,4 +9,4 @@ WORKDIR /app
 RUN pip install requests
 
 # Exécution de l'application
-CMD ["python", "openweatherWrapper.py"]
+CMD ["python", "api_openweather_v2.py"]

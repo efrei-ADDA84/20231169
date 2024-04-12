@@ -39,5 +39,6 @@ def api_weather():
         return jsonify({'error': 'Unable to fetch weather data'}), 500
 
 if __name__ == "__main__":
-    app_v2.run(debug=True)
+    # Si l'on souhaite que l'application écoute le port 8081 (5000 par défaut)
+    app_v2.run(debug=True, port=8081)       
 

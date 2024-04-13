@@ -7,7 +7,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Installe les dépendances
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copie tout le contenu du répertoire local vers le conteneur Docker
 COPY . .

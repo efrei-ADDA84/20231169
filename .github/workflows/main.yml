@@ -8,11 +8,17 @@ on:
       - 'Tp2_devops/**'
       - '.github/workflows/main.yml'
 jobs:
-  build-and-push:
+  lint_and_build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Lint Dockerfile with hadolint
+        uses:  hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Tp2_devops/Dockerfile
+          fail-on: error
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3

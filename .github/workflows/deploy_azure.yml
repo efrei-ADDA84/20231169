@@ -49,5 +49,7 @@ jobs:
           dns-name-label: devops-${{ secrets.ID_EFREI }}
           image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ secrets.ID_EFREI }}/docker_image_tp3:latest
           name: ${{ secrets.ID_EFREI }}
+          registry-username: ${{ secrets.REGISTRY_USERNAME }}
+          registry-password: ${{ secrets.REGISTRY_PASSWORD }}
           location: westeurope
           ports: 80

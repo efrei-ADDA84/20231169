@@ -51,5 +51,6 @@ jobs:
           name: ${{ secrets.ID_EFREI }}
           registry-username: ${{ secrets.REGISTRY_USERNAME }}
           registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+          environment-variables: OPENWEATHER_API_KEY=${{ secrets.OPENWEATHER_API_KEY }}
           location: westeurope
           ports: 80

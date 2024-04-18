@@ -40,5 +40,5 @@ def api_weather():
 
 if __name__ == "__main__":
     # Si l'on souhaite que l'application écoute le port 8081 (5000 par défaut)
-    app_v2.run(debug=True, port=8081)       
+    app_v2.run(debug=True, port=80)       
 

@@ -38,6 +38,11 @@ jobs:
       - name: Push Docker image to Azure Container Registry (ACR)
         run: docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ secrets.ID_EFREI }}/docker_image_tp2:latest
 
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: Deploy to Azure Container Instances (ACI)
         uses: azure/aci-deploy@v1
         with:

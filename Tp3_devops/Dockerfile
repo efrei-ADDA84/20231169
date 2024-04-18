@@ -11,6 +11,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copie tout le contenu du répertoire local vers le conteneur Docker
 COPY . .
+EXPOSE 80
 
 # Exécution de l'application
 CMD ["python", "api_openweather_v2.py"]

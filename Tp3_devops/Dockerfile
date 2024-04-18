@@ -1,5 +1,5 @@
 # Image de base Python
-FROM python:3.9-slim
+FROM python:3.8
 
 # Définit le répertoire de travail Et le fichier contenant
 # les dépendances à installer à l'intérieur du conteneur 

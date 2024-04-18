@@ -33,17 +33,17 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - name: Tag Docker image with ACR URI
-        run: docker tag ${{ secrets.DOCKER_USERNAME }}/docker_image_tp2:latest ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ secrets.ACR_REPO_NAME }}/docker_image_tp2:latest
+        run: docker tag ${{ secrets.DOCKER_USERNAME }}/docker_image_tp2:latest ${{ secrets.ACR_REPO_NAME }}/docker_image_tp2:latest
 
       - name: Push Docker image to Azure Container Registry (ACR)
-        run: docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ secrets.ACR_REPO_NAME }}/docker_image_tp2:latest
+        run: docker push ${{ secrets.ACR_REPO_NAME }}/docker_image_tp2:latest
 
       - name: Deploy to Azure Container Instances (ACI)
         uses: azure/aci-deploy@v1
         with:
           resource-group: ${{ secrets.RESOURCE_GROUP }}
-          dns-name-label: devops-<20231169>
-          image-name: ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ secrets.ACR_REPO_NAME }}/docker_image_tp2:latest
-          container-name: 20231169
+          dns-name-label: devops-${{ secrets.ID_EFREI }}
+          image: ${{ secrets.ACR_REPO_NAME }}/docker_image_tp2:latest
+          name: ${{ secrets.ID_EFREI }}
           location: francecentral
           ports: 80

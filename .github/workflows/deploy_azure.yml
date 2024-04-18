@@ -35,7 +35,7 @@ jobs:
           context: ./Tp3_devops
           file: ./Tp3_devops/Dockerfile
           push: true
-          tags: ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ secrets.ID_EFREI }}/docker_image_tp3:latest
+          tags: ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ secrets.ID_EFREI }}:latest
 
       - name: Azure Login
         uses: azure/login@v1
@@ -47,10 +47,11 @@ jobs:
         with:
           resource-group: ${{ secrets.RESOURCE_GROUP }}
           dns-name-label: devops-${{ secrets.ID_EFREI }}
-          image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ secrets.ID_EFREI }}/docker_image_tp3:latest
+          image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ secrets.ID_EFREI }}:latest
           name: ${{ secrets.ID_EFREI }}
+          registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
           registry-username: ${{ secrets.REGISTRY_USERNAME }}
           registry-password: ${{ secrets.REGISTRY_PASSWORD }}
           environment-variables: OPENWEATHER_API_KEY=${{ secrets.OPENWEATHER_API_KEY }}
           location: westeurope
-          ports: 80
+          #ports: 80
